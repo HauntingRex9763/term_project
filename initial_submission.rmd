@@ -244,4 +244,3 @@ $$
 
 # 5. Citations and References {-}
 
-immigration_stats <-read.csv("C:\\Users\\jacks\\OneDrive\\11UPEI\\Classes\\Stat 1910\\Term Project\\canadian_immegration_data.csv")
