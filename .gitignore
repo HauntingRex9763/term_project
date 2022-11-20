@@ -21,6 +21,8 @@
 # RStudio files
 .Rproj.user/
 
+.gitattributes
+
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
