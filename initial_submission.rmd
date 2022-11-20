@@ -36,8 +36,6 @@ df <- read.csv("C:\\Users\\jacks\\OneDrive\\11UPEI\\Classes\\Stat 1910\\Term Pro
   select(car_id, price, mileage, transmission) %>%
   rename(id = car_id) 
 
-
-nrow(df)
 # Empty values in this dataset are represented as ,, in the csv, so we'll make those NA and omit them
 df[df == ''] <- NA 
 df[df == 'Other'] <- NA
@@ -49,12 +47,11 @@ df <- na.omit(df)
 ***
 
 # 1. Introduction 
-# TODO Reffrence python script on github used to merge two csvs
 Buying a used car you need to consider various factors. This study aims to better understand how mileage influences the cost of a used car. The average cost of a used car in the UK in 2020 is 23471.45 Euros. This project investigates whether factors such as the mileage of a car and transmission type of a car are related to used car costs in the UK. 
 
-To address this question, we used the^[KUKUROO3 _used car price dataset (competition format)_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/kukuroo3/used-car-price-dataset-competition-format] data set from Kaggle that merged information from^[Aditya _100,000 UK Used Car Data set_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/christophercorrea/dc-residential-properties?resource=download] which contains cars listed for sale from various used car listing websites.  The data was last updated four years ago. Each case in the data set is a property in DC. 
+To address this question, we used the^[KUKUROO3 _used car price dataset (competition format)_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/kukuroo3/used-car-price-dataset-competition-format] data set from Kaggle that merged information from^[Aditya _100,000 UK Used Car Data set_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes?select=vw.csv] which contains cars listed for sale from various used car listing websites.  The data was last updated two years ago. Each case in the data set is a used car for sale in the UK. The data from Kaggle had data divided into two separate CSVs, so a script was ran to concatenate them called merger.py accessible from the term_project repository^[HauntingRex9763 _term_project_. GitHub, September, 2022. Web. 19 Nov 2022. https://github.com/HauntingRex9763/term_project]. 
 
-It was decided to have price of used cars for sale in the UK (in Euros) as our outcome variable. There is two explanatory variables in this analysis: the mileage of a car, and transmission type of a car, with three levels, "Automatic", "Semi-Auto", "NW", and "Manual". 
+It was decided to have price of used cars for sale in the UK (in Euros) as our outcome variable. There is two explanatory variables in this analysis: the mileage of a car, and transmission type of a car, with three levels, "Automatic", "Semi-Auto", and "Manual". 
 
 Here is a snapshot of 5 randomly chosen rows of the data set we'll use:
 
@@ -150,7 +147,7 @@ ggplot(df, aes(x = transmission, y = price, fill = transmission)) +
   labs(y = "Price of used cars in the UK", x = "Transmission Type")
 ```
 
-Finally, we generated a colored scatterplot displaying the relationship between all three variables at once in Figure 5.  While this plot corresponds to an interaction model where we allow for each regression line corresponding to each school size to have a different slope, we observe that the slopes appear to be fairly similar, and thus the regression lines are roughly parallel. The additional complexity of the interaction model model thus appears to not be warranted, and thus we will favor the simpler "parallel slopes" model in our regression analysis. 
+Finally, we generated a colored scatterplot displaying the relationship between all three variables at once in Figure 5.  While this plot corresponds to an interaction model where we allow for each regression line corresponding to each transmission type to have a different slope, we observe that the slopes appear to be fairly similar, and thus the regression lines are roughly parallel. The additional complexity of the interaction model model thus appears to not be warranted, and thus we will favor the simpler "parallel slopes" model in our regression analysis. 
 
 ```{r, fig.cap = "Figure 4. Colored scatterplot of relationship between price and both mileage and transmission types of cars in the UK.", fig.align = "center"}
 ggplot(df, aes(x = mileage, y = log_price, color = transmission)) +
@@ -194,7 +191,7 @@ get_regression_table(math_model)
 
 ## 3.3 Interpreting the regression table
 
-The regression equation for Math SAT score is the following:
+The regression equation for used car prices is the following:
 
 $$
 \begin{aligned}\widehat {price} =& b_{0} + b_{mileage} \cdot mileage + b_{manual} \cdot 1_{is\ manual}(x_2) + b_{semi-auto} \cdot 1_{is\ semi-auto}(x_2) \\
@@ -210,7 +207,7 @@ Thus the three regression lines have equations:
 
 $$
 \begin{aligned}
-\text{Automatic schools (in red)}: \widehat {price} =& 34431.667 - 2.777 \cdot mileage\\
+\text{Automatic transmissions (in red)}: \widehat {price} =& 34431.667 - 2.777 \cdot mileage\\
 \text{Manual transmissions (in green)}: \widehat {price} =& 21152.328 - 2.777 \cdot mileage\\
 \text{Semi-Auto transmissions (in blue)}: \widehat {price} =& 37704.386 - 2.777 \cdot mileage
 \end{aligned} 
