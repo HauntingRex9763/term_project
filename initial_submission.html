@@ -1517,7 +1517,7 @@ font-size: 0.95em;
 <h1 class="title toc-ignore">Predictive Factors of Used Car Prices In
 the UK</h1>
 <h4 class="author">Dale Urquhart</h4>
-<h4 class="date">Last updated on 2022-11-20</h4>
+<h4 class="date">Last updated on 2022-11-21</h4>
 
 </div>
 
@@ -1540,7 +1540,8 @@ term_project repository<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</s
 <p>It was decided to have price of used cars for sale in the UK (in
 Euros) as our outcome variable. There is two explanatory variables in
 this analysis: the mileage of a car, and transmission type of a car,
-with three levels, “Automatic”, “Semi-Auto”, and “Manual”.</p>
+with three levels, “Automatic”, “Semi-Auto”, and “Manual”. The ‘Other’
+category was omittted as it had an irrelevant count of items (1).</p>
 <p>Here is a snapshot of 5 randomly chosen rows of the data set we’ll
 use:</p>
 <div class="kable-table">
@@ -1555,34 +1556,34 @@ use:</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">19041</td>
-<td align="right">29495</td>
-<td align="right">8686</td>
-<td align="left">Automatic</td>
-</tr>
-<tr class="even">
-<td align="right">18714</td>
-<td align="right">14457</td>
-<td align="right">1686</td>
-<td align="left">Manual</td>
-</tr>
-<tr class="odd">
-<td align="right">13782</td>
-<td align="right">10480</td>
-<td align="right">12845</td>
-<td align="left">Manual</td>
-</tr>
-<tr class="even">
-<td align="right">13937</td>
-<td align="right">11500</td>
-<td align="right">33905</td>
-<td align="left">Automatic</td>
-</tr>
-<tr class="odd">
-<td align="right">18976</td>
-<td align="right">12690</td>
-<td align="right">24389</td>
+<td align="right">12352</td>
+<td align="right">35695</td>
+<td align="right">3790</td>
 <td align="left">Semi-Auto</td>
+</tr>
+<tr class="even">
+<td align="right">19286</td>
+<td align="right">55298</td>
+<td align="right">1284</td>
+<td align="left">Automatic</td>
+</tr>
+<tr class="odd">
+<td align="right">18765</td>
+<td align="right">15273</td>
+<td align="right">6310</td>
+<td align="left">Manual</td>
+</tr>
+<tr class="even">
+<td align="right">14159</td>
+<td align="right">5695</td>
+<td align="right">75000</td>
+<td align="left">Manual</td>
+</tr>
+<tr class="odd">
+<td align="right">19342</td>
+<td align="right">33495</td>
+<td align="right">3602</td>
+<td align="left">Automatic</td>
 </tr>
 </tbody>
 </table>

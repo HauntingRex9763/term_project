@@ -31,10 +31,15 @@ library(moderndive)
 
 ```{r}
 # Copy over all your data wrangling code here:
-df <- read.csv("C:\\Users\\jacks\\OneDrive\\11UPEI\\Classes\\Stat 1910\\Term Project\\df3.csv") %>% 
+df <- read.csv("https://raw.githubusercontent.com/HauntingRex9763/term_project/main/df3.csv") %>% 
   clean_names() %>%
   select(car_id, price, mileage, transmission) %>%
   rename(id = car_id) 
+
+# Visualize the count of transmission catagories
+#df %>% 
+#  group_by(transmission) %>%
+#  summarize(n=n())
 
 # Empty values in this dataset are represented as ,, in the csv, so we'll make those NA and omit them
 df[df == ''] <- NA 
@@ -51,7 +56,7 @@ Buying a used car you need to consider various factors. This study aims to bette
 
 To address this question, we used the^[KUKUROO3 _used car price dataset (competition format)_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/kukuroo3/used-car-price-dataset-competition-format] data set from Kaggle that merged information from^[Aditya _100,000 UK Used Car Data set_. Kaggle, n.d. Web. 19 Nov 2022. https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes?select=vw.csv] which contains cars listed for sale from various used car listing websites.  The data was last updated two years ago. Each case in the data set is a used car for sale in the UK. The data from Kaggle had data divided into two separate CSVs, so a script was ran to concatenate them called merger.py accessible from the term_project repository^[HauntingRex9763 _term_project_. GitHub, September, 2022. Web. 19 Nov 2022. https://github.com/HauntingRex9763/term_project]. 
 
-It was decided to have price of used cars for sale in the UK (in Euros) as our outcome variable. There is two explanatory variables in this analysis: the mileage of a car, and transmission type of a car, with three levels, "Automatic", "Semi-Auto", and "Manual". 
+It was decided to have price of used cars for sale in the UK (in Euros) as our outcome variable. There is two explanatory variables in this analysis: the mileage of a car, and transmission type of a car, with three levels, "Automatic", "Semi-Auto", and "Manual". The 'Other' category was omittted as it had an irrelevant count of items (1).
 
 Here is a snapshot of 5 randomly chosen rows of the data set we'll use:
 
@@ -234,7 +239,7 @@ $$
 
 
 ## 4.3 Further questions
-
+  
 
 
 
